@@ -1,0 +1,66 @@
+[tools]
+node = "lts"
+bun = "latest"
+go = "latest"
+golangci-lint = "latest"
+
+# --- Tasks (run with: `mise run <task>`)
+
+[tasks.bootstrap]
+description = "Init submodules + install toolchains"
+run = """
+git submodule update --init --recursive
+mise install
+(cd toolbox-ext && bun i)
+"""
+
+# Go API
+[tasks."dev:api"]
+dir = "videofetch"
+run = "go run ./cmd/videofetch" # change to your entrypoint if different
+
+[tasks."lint:api"]
+dir = "videofetch"
+run = "golangci-lint run ./..."
+
+[tasks."test:api"]
+dir = "videofetch"
+run = "go test ./..."
+
+# PWA (vite/next/etc). Swap to `pnpm run dev` if you prefer.
+[tasks."dev:web"]
+dir = "web"
+run = "bun dev"
+
+[tasks."lint:web"]
+dir = "web"
+run = "bun lint"
+
+[tasks."fmt:web"]
+dir = "toolbox-ext"
+run = "bun fmt"
+
+# Chrome extension: build/watch to `extension/dist`
+[tasks."dev:ext:watch"]
+dir = "toolbox-ext"
+run = "bun dev" # e.g. CRXJS/Plasmo/Vite watcher that outputs to dist
+
+[tasks."lint:ext"]
+dir = "toolbox-ext"
+run = "bun lint"
+
+[tasks."fmt:ext"]
+dir = "toolbox-ext"
+run = "bun fmt"
+
+# Launch a clean Chrome instance with the extension loaded + remote debug
+[tasks."chrome:dev"]
+run = """
+helium-browser \
+  --user-data-dir=/tmp/media-toolbox-chrome \
+  --no-first-run --no-default-browser-check \
+  --remote-debugging-port=9222 \
+  --disable-extensions-except=$(pwd)/toolbox-ext/dist \
+  --load-extension=$(pwd)/toolbox-ext/dist
+"""
+

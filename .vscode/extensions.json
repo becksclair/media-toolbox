@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "oxc.oxc-vscode",
+    "golang.Go",
+    "ms-vscode.js-debug",
+    "EditorConfig.EditorConfig",
+    "streetsidesoftware.code-spell-checker"
+  ],
+  "unwantedRecommendations": [
+    "biomejs.biome",
+    "esbenp.prettier-vscode"
+  ]
+}

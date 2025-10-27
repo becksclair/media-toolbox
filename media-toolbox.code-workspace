@@ -1,0 +1,25 @@
+{
+  "folders": [
+    { "name": "media-toolbox", "path": "." },
+    { "name": "videofetch",    "path": "videofetch" },
+    { "name": "toolbox-ext",   "path": "toolbox-ext" }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": true
+  },
+  "extensions": {
+    "recommendations": [
+      "golang.Go",
+      "ms-vscode.js-debug",
+      "EditorConfig.EditorConfig",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  }
+}

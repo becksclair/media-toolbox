@@ -1,0 +1,8 @@
+[submodule "videofetch"]
+	path = videofetch
+	url = git@github.com:becksclair/videofetch.git
+	branch = main
+[submodule "toolbox-ext"]
+	path = toolbox-ext
+	url = git@github.com:becksclair/toolbox-ext.git
+	branch = main

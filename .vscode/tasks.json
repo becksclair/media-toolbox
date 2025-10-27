@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bootstrap",
+      "command": "mise run bootstrap",
+      "type": "shell"
+    },
+    {
+      "label": "API: dev",
+      "command": "mise run dev:api",
+      "type": "shell",
+      "isBackground": true
+    },
+    {
+      "label": "WEB: dev",
+      "command": "mise run dev:web",
+      "type": "shell",
+      "isBackground": true
+    },
+    {
+      "label": "EXT: watch",
+      "command": "mise run dev:ext:watch",
+      "type": "shell",
+      "isBackground": true
+    },
+    {
+      "label": "EXT: chrome",
+      "command": "mise run chrome:dev",
+      "type": "shell",
+      "isBackground": true
+    },
+    {
+      "label": "Dev: all (parallel)",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "API: dev",
+        "WEB: dev",
+        "EXT: watch",
+        "EXT: chrome"
+      ]
+    }
+  ]
+}

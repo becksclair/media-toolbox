@@ -1,0 +1,65 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  // Important: setting "plugins" overwrites defaults, so we include the defaults AND our extras.
+  "plugins": ["unicorn", "typescript", "oxc", "react", "jsx-a11y", "import"],
+  "categories": {
+    "correctness": "error",   // on by default; make it explicit & strict
+    "suspicious": "warn"      // good signal/noise for day-to-day
+  },
+  "env": { "browser": true, "node": true },
+  "settings": {
+    // These help React & a11y rules understand your custom components/links
+    "react": {
+      "linkComponents": [{ "name": "Link", "attributes": ["to", "href"] }]
+    },
+    "jsx-a11y": {
+      "components": { "Link": "a", "IconButton": "button" }
+    }
+  },
+  "rules": {
+    // React: tighten the essentials
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+
+    // Imports: a couple of high-value checks (others come in via categories)
+    "import/no-self-import": "error",
+    "import/no-cycle": "error",
+    "import/no-named-as-default": "off",
+    "unicorn/consistent-function-scoping": "warn",
+    "@typescript-eslint/no-unsafe-type-assertion": "warn",
+    "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+
+    // Accessibility overrides to support react-router Link semantics
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "components": ["Link"],
+        "specialLink": ["to", "href"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "jsx-a11y/anchor-has-content": [
+      "warn",
+      {
+        "components": ["Link"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.{jsx,tsx}"],
+      "rules": {
+        // Allow intentional unused identifiers prefixed with underscore
+        "no-unused-vars": [
+          "warn",
+          {
+            "varsIgnorePattern": "^React$|^_",
+            "argsIgnorePattern": "^_"
+          }
+        ]
+      }
+    }
+  ]
+}

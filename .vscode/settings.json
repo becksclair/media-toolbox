@@ -1,0 +1,22 @@
+{
+  "editor.formatOnSave": true,
+  // Frontend (Vite + React + OXC)
+  "[javascript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "oxc.configPath": "${workspaceFolder}/.oxlintrc.json",
+  "oxc.tsConfigPath": "${workspaceFolder}/tsconfig.json",
+  "oxc.typeAware": true,
+  // Oxfmt in-editor support (config file is optional but supported)
+  "oxc.fmt.experimental": true,
+  "oxc.fmt.configPath": null
+}
