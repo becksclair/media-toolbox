@@ -10,6 +10,22 @@
       "cwd": "${workspaceFolder:videofetch}",
       "envFile": "${workspaceFolder:videofetch}/.env"
     },
+    {
+      "name": "Chrome: launch (extension)",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "EXT: bun dev",
+      "url": "chrome://extensions/",
+      "webRoot": "${workspaceFolder:toolbox-ext}",
+      "runtimeArgs": [
+        "--remote-debugging-port=9222",
+        "--load-extension=${workspaceFolder:toolbox-ext}/.wxt/dev/chrome-mv3",
+        "--disable-extensions-except=${workspaceFolder:toolbox-ext}/.wxt/dev/chrome-mv3",
+        "--user-data-dir=${workspaceFolder:toolbox-ext}/.chrome-debug-profile"
+      ],
+      "runtimeExecutable": "/usr/bin/helium-browsehelium-browserr",
+      "trace": false
+    },
     // {
     //   "name": "PWA: Chrome",
     //   "type": "chrome",
@@ -32,6 +48,7 @@
       "name": "ALL: dev & debug",
       "configurations": [
         "Go: API (debug)",
+        "Chrome: launch (extension)",
         // "PWA: Chrome",
         "Chrome: attach (extension)"
       ],

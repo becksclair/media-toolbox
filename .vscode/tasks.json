@@ -25,6 +25,32 @@
       "isBackground": true
     },
     {
+      "label": "EXT: bun dev",
+      "command": "bun dev",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder:toolbox-ext}"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": [
+          {
+            "regexp": ".*"
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": "ready"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
       "label": "EXT: chrome",
       "command": "mise run chrome:dev",
       "type": "shell",
@@ -37,6 +63,7 @@
         "API: dev",
         "WEB: dev",
         "EXT: watch",
+        "EXT: bun dev",
         "EXT: chrome"
       ]
     }

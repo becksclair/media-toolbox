@@ -14,7 +14,7 @@ Built with performance, reliability, and developer experience in mind.
 
 ## 🏗️ Architecture
 
-```
+```text
 media-toolbox/
 ├── videofetch/          # Go backend service (production-ready)
 │   ├── cmd/             # Main application entry point
@@ -26,14 +26,14 @@ media-toolbox/
 │   │   ├── ui/          # Templ templates + HTMX dashboard
 │   │   └── logging/     # Structured JSON logging
 │   └── static/          # CSS, assets
-├── toolbox-ext/         # Chrome extension (WXT + SolidJS scaffold)
+├── toolbox-ext/         # Chrome extension (WXT + React scaffold)
 │   └── entrypoints/     # Background, content scripts, popup
 └── web/                 # PWA (not yet implemented)
 ```
 
 ### Component Interaction
 
-```
+```text
 ┌─────────────────┐      URLs       ┌──────────────────┐
 │     Chrome      │ ──────────────> │    videofetch    │
 │   Extension     │                 │   Go Backend     │
@@ -117,7 +117,7 @@ A high-performance Go web service that handles video downloads via `yt-dlp`.
 
 Browser extension for capturing video URLs and sending them to the backend.
 
-**Tech Stack**: WXT, SolidJS, TypeScript
+**Tech Stack**: WXT, React, TypeScript, Shadcn
 
 **Planned Features**:
 - 🚧 Detect video pages automatically
@@ -144,9 +144,9 @@ A progressive web app for browsing and managing downloaded videos.
 
 | Component      | Technologies                                      |
 | -------------- | ------------------------------------------------- |
-| **Backend**    | Go 1.23+, SQLite, yt-dlp, Templ, HTMX, Tailwind  |
-| **Extension**  | WXT, SolidJS, TypeScript, Bun                     |
-| **PWA**        | TBD (likely Vite + SolidJS)                       |
+| **Backend**    | Go 1.23+, SQLite, yt-dlp, Templ,  HTMX, Tailwind  |
+| **Extension**  | WXT, React, TypeScript, Bun                       |
+| **PWA**        | TBD (likely Vite + React)                         |
 | **Tooling**    | mise, oxlint, golangci-lint                       |
 | **Dev Tools**  | VS Code multi-root workspace                      |
 
@@ -206,11 +206,13 @@ git commit -m "Update videofetch submodule"
 ## 🚀 Roadmap
 
 ### Current State
+
 - ✅ Backend service fully functional
 - ✅ API, database, and dashboard working
 - 🚧 Extension is scaffold only
 
 ### Next Steps
+
 1. **Extension MVP** (Phase 1)
    - Implement URL detection and capture
    - Add one-click download button
@@ -218,7 +220,7 @@ git commit -m "Update videofetch submodule"
    - Connect to backend API
 
 2. **PWA Foundation** (Phase 2)
-   - Set up Vite + SolidJS project
+   - Set up Vite + React project
    - Design media grid layout
    - Implement search and filtering
    - Connect to backend API

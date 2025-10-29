@@ -18,5 +18,6 @@
   "oxc.typeAware": true,
   // Oxfmt in-editor support (config file is optional but supported)
   "oxc.fmt.experimental": true,
-  "oxc.fmt.configPath": null
+  "oxc.fmt.configPath": null,
+  "npm.packageManager": "bun"
 }
