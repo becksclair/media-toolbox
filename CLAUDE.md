@@ -13,7 +13,7 @@ Both videofetch and toolbox-ext are Git submodules with independent repositories
 
 ### Monorepo Structure
 
-```
+```text
 /home/bex/projects/media-toolbox/
 ├── videofetch/              # Git submodule
 │   ├── cmd/videofetch/      # Main entry point
