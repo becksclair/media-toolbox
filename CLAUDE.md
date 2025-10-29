@@ -597,3 +597,4 @@ lsof ~/.cache/videofetch/videofetch.db
 - WXT Documentation: https://wxt.dev/
 - Templ Documentation: https://templ.guide/
 - yt-dlp Documentation: https://github.com/yt-dlp/yt-dlp#readme
+- When working with 'specs', feature branches should be created on the root project and on the specific sub-projects
